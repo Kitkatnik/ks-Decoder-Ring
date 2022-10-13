@@ -30,7 +30,7 @@ const substitutionModule = (function () {
     return endingInput;
   }
 
-  function substitution(input, alphabet, encode = true) {
+  function substitution(input, alphabet = 0, encode = true) {
     // check the alphabet for 26 characters
     if ( alphabet.length !== 26 ) return false;
 
@@ -60,7 +60,7 @@ const substitutionModule = (function () {
     return endingInput.join("");
   }
 
-  substitution("jrufscpw", "xoyqmcgrukswaflnthdjpzibev", false);
+  substitution("jrufscpw");
   // elp xhm xf mbymwwmfj dne
 
   return {
