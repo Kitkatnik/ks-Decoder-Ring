@@ -30,4 +30,11 @@ describe("caesar", () => {
         const actual = caesar(input, shift);
         expect(actual).to.equal(expected);
     })
+    it ("should decode a message by shifting letters in opposite direction", () => {
+        const input = "wklqnixo";
+        const shift = 3;
+        const expected = "thinkful";
+        const actual = caesar(input, shift, false);
+        expect(actual).to.equal(expected);
+    })
 });
