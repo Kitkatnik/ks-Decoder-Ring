@@ -9,10 +9,10 @@ describe("polybius", () => {
         const actual = polybius(input, encode);
         expect(actual).to.equal(expected);
     })
-    it ("should decode the input", () => {
+    it ("should decode the input with i and j both shown", () => {
         const input = "4432423352125413";
         const encode = false;
-        const expected = "thinkful";
+        const expected = "th(i/j)nkful";
         const actual = polybius(input, encode);
         expect(actual).to.equal(expected);
     })
@@ -20,13 +20,6 @@ describe("polybius", () => {
         const input = "3251131343 2543241341";
         const encode = false;
         const expected = "hello world";
-        const actual = polybius(input, encode);
-        expect(actual).to.equal(expected);
-    })
-    it ("should decode and show both i and j", () => {
-        const input = "message";
-        const encode = false;
-        const expected = "th(i/j)nkful";
         const actual = polybius(input, encode);
         expect(actual).to.equal(expected);
     })
