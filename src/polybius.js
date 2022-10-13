@@ -87,16 +87,10 @@ const polybiusModule = (function () {
 
       // change input to an array
       let codes = splitString( input );
-      console.log( "INPUT SPLIT INTO ARRAY");
-      console.log(codes);
 
       // loop through array and push letter to array
       codes.forEach( code => {
-        console.log( "JUST A LETTER");
-        console.log(code);
         result.push( toLetter( code ) )
-        console.log("THE RESULT")
-        console.log(result);
       } );
 
     }
@@ -108,8 +102,6 @@ const polybiusModule = (function () {
       // loop through array and change the letter into a code using helper function
       result.forEach( ( letter, index ) => result[index] = toCode( letter ) )
     }
-    console.log("RESULT TOGETHER");
-    console.log(result.join(""));
 
     // return result array joined into a string
     return result.join("")

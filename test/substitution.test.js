@@ -30,7 +30,7 @@ describe("substitution", () => {
     it ("should encode the message", () => {
         const input = "message";
         const alphabet = "$wae&zrdxtfcygvuhbijnokmpl";
-        const expected = "y&ii$r&X";
+        const expected = "y&ii$r&";
         const actual = substitution(input, alphabet);
 
         expect(actual).to.equal(expected);

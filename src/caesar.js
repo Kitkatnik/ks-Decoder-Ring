@@ -43,8 +43,7 @@ const caesarModule = (function () {
     })
     // join array back into a string
     .join("");
-
-    console.log(result);
+    
     return result;
   } // OUTPUT = string
 
