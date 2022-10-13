@@ -1,4 +1,3 @@
-// TODO: Write the polybius function
 const polybiusModule = (function () {
   // change letter to code
   function toCode ( letter ) {
