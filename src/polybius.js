@@ -1,101 +1,62 @@
 // TODO: Write the polybius function
 const polybiusModule = (function () {
-
   // change letter to code
   function toCode ( letter ) {
-    let result = [];
+    // return i/j
+    if ( letter === "i" || letter === "j") return "42";
 
-    // change letter to first number
-    switch ( letter ) {
-      case "a":
-      case "f":
-      case "l":
-      case "q":
-      case "v":
-        result.push( "1" );
-        break;
-      case "b":
-      case "g":
-      case "m":
-      case "r":
-      case "w":
-        result.push( "2" );
-        break;
-      case "c":
-      case "h":
-      case "n":
-      case "s":
-      case "x":
-        result.push( "3" );
-        break;
-      case "d":
-      case "i":
-      case "j":
-      case "o":
-      case "t":
-      case "y":
-        result.push( "4" );
-        break;
-      case "e":
-      case "k":
-      case "p":
-      case "u":
-      case "z":
-        result.push( "5" );
-        break;
-      default:
-        return " ";
-    }
+    // skip spaces
+    if (letter === " ") return " ";
 
-    // change letter to second number
-    switch ( letter ) {
-      case "a":
-      case "b":
-      case "c":
-      case "d":
-      case "e":
-        result.push( "1" );
-        break;
-      case "f":
-      case "g":
-      case "h":
-      case "i":
-      case "j":
-      case "k":
-        result.push( "2" );
-        break;
-      case "l":
-      case "m":
-      case "n":
-      case "o":
-      case "p":
-        result.push( "3" );
-        break;
-      case "q":
-      case "r":
-      case "s":
-      case "t":
-      case "u":
-        result.push( "4" );
-        break;
-      case "v":
-      case "w":
-      case "x":
-      case "y":
-      case "z":
-        result.push( "5" );
-        break;
-      default:
-        return " ";
-    }
+    // create a nested array with all the numbers matching the polybius square
+    let polySquare = [
+      ["a", "b", "c", "d", "e"], 
+      ["f", "g", "h", "(i/j)","k"],
+      ["l", "m", "n", "o", "p"], 
+      ["q", "r", "s", "t", "u"], 
+      ["v", "w", "x", "y", "z"]
+    ]
 
+    let numOne = 0; // nested array index (j)
+    let numTwo = 0; // first array index (i)
+
+    // loop through each array and search for the letter - get the index + 1 for both arrays
+    polySquare.forEach( (grid, i) => {
+      grid.forEach( (letters, j) => {
+        if( letters === letter ) {
+          numTwo = i+1;
+          numOne = j+1;
+        }
+      })
+    });
+    
     // return both numbers in a string
-    return result.join("");
+    return `${numOne}${numTwo}`;
   };
 
   // change code to letter
   function toLetter ( code ) {
-    
+    // return i / j 
+    if ( code === "42") return "(i/j)";
+
+    // skip spaces
+    if ( code === " " ) return " ";
+
+    // create polybius square
+    let polySquare = [
+      ["a", "b", "c", "d", "e"], 
+      ["f", "g", "h", "(i/j)","k"],
+      ["l", "m", "n", "o", "p"], 
+      ["q", "r", "s", "t", "u"], 
+      ["v", "w", "x", "y", "z"]
+    ]
+
+    // set indexes
+    let indexOne = parseInt(code[1] - 1); // get first letter of string, to integer, minus 1
+    let indexTwo = parseInt(code[0] - 1); // get second letter of string, to integer, minus 1
+
+    // return the letter found at the indexes
+    return polySquare[indexOne][indexTwo];
   };
   function polybius(input, encode = true) {
 
