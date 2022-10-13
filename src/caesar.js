@@ -1,5 +1,6 @@
 const caesarModule = (function () {
 
+  // INPUT = string, number, boolean
   function caesar(input, shift = 0, encode = true) {
     // If the shift value isn't present, equal to 0, less than -25, or greater than 25, the function should return false.
     if (shift === null || shift === undefined || shift === 0 || shift < -25 || shift > 25) return false;
@@ -45,9 +46,7 @@ const caesarModule = (function () {
 
     console.log(result);
     return result;
-  }
-
-  caesar("Zebra Magazine", 3);
+  } // OUTPUT = string
 
   return {
     caesar,
