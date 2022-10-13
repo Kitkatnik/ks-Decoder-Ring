@@ -1,5 +1,3 @@
-// TODO: Write tests for polybius function
-
 const {polybius} = require("../src/polybius.js");
 const expect = require("chai").expect;
 

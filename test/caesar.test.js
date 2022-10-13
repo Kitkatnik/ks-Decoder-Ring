@@ -1,5 +1,3 @@
-// TODO: Write tests for caesar function
-
 const {caesar} = require("../src/caesar.js");
 const expect = require("chai").expect;
 
